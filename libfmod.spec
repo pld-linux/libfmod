@@ -8,6 +8,7 @@ Group:		Libraries
 Source0:	http://www.racer.nl/download/%{name}-%{version}.zip
 # Source0-md5:	da325e028507b88e8e966b75c89d693b
 URL:		http://www.fmod.org/
+BuildRequires:	unzip
 ExclusiveArch:	%{ix86}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
