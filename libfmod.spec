@@ -12,22 +12,21 @@ ExclusiveArch:	%{ix86}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-FMOD supports 3d sound, midi, mods, mp3, ogg vorbis, wma, aiff,
-recording, obstruction/occlusion, cd playback (analog or digital), cd
-ripping, mmx, internet streaming, dsp effects, spectrum analysis, user
+FMOD supports 3D sound, MIDI, MODs, MP3, Ogg Vorbis, WMA, aiff,
+recording, obstruction/occlusion, CD playback (analog or digital), CD
+ripping, MMX, Internet streaming, DSP effects, spectrum analysis, user
 created samples and streams, synchronization support, ASIO, EAX 2&3,
 C/C++/VB/Delphi/MASM and more.
 
 %description -l pl
-FMOD obs³uguje d¼wiêk 3d, midi, mods, mp3, ogg vorbis, wma, aiff,
-nagrywanie, mmx, internet streaming, efekty dsp, analizê spektrum,
-user created samples and streams, synchronizacjê, ASIO, EAX 2&3,
-C/C++/VB/Delphi/MASM i wiêcej.
+FMOD obs³uguje d¼wiêk 3D, MIDI, MOD, MP3, Ogg Vorbis, WMA, aiff,
+nagrywanie, zniekszta³cenia, odtwarzanie CD (analogowe i cyfrowe),
+rippowanie CD, MMX, strumienie internetowe, efekty DSP, analizê widma,
+próbki i strumienie tworzone przez u¿ytkownika, synchronizacjê, ASIO,
+EAX 2&3, C/C++/VB/Delphi/MASM i wiêcej.
 
 %prep
-%setup -q -c %{name}-%{version}
-
-%build
+%setup -q -c
 
 %install
 rm -rf $RPM_BUILD_ROOT
