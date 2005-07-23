@@ -31,11 +31,15 @@ EAX 2&3, C/C++/VB/Delphi/MASM i wiêcej.
 
 %package devel
 Summary:	Development headers for FMOD sound library
+Summary(pl):	Pliki nag³ówkowe biblioteki d¼wiêkowej FMOD
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description devel
-Development headers for FMOD sound library
+Development headers for FMOD sound library.
+
+%description devel -l pl
+Pliki nag³ówkowe biblioteki d¼wiêkowej FMOD.
 
 %prep
 %setup -q -n fmodapi%{_srcver}%{_srcrel}linux
