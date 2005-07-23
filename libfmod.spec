@@ -1,14 +1,17 @@
-Summary:	Sound library
-Summary(pl):	Biblioteka d¼wiêkowa
+
+%define		_srcver	374
+%define		_srcrel 1
+
+Summary:	FMOD sound library
+Summary(pl):	Biblioteka d¼wiêkowa FMOD
 Name:		libfmod
-Version:	3.61
+Version:	3.74
 Release:	1
 License:	Freeware
 Group:		Libraries
-Source0:	http://www.racer.nl/download/%{name}-%{version}.zip
-# Source0-md5:	da325e028507b88e8e966b75c89d693b
+Source0:	http://www.fmod.org/files/fmodapi%{_srcver}%{_srcrel}linux.tar.gz
+# Source0-md5:	8a76312aa56cd2223eb40e36a9060171
 URL:		http://www.fmod.org/
-BuildRequires:	unzip
 ExclusiveArch:	%{ix86}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -26,13 +29,22 @@ rippowanie CD, MMX, strumienie internetowe, efekty DSP, analizê widma,
 próbki i strumienie tworzone przez u¿ytkownika, synchronizacjê, ASIO,
 EAX 2&3, C/C++/VB/Delphi/MASM i wiêcej.
 
+%package devel
+Summary:	Development headers for FMOD sound library
+Group:		Development/Libraries
+Requires:	%{name} = %{version}
+
+%description devel
+Development headers for FMOD sound library
+
 %prep
-%setup -q -c
+%setup -q -n fmodapi%{_srcver}%{_srcrel}linux
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_libdir}
-install %{name}-%{version}.so $RPM_BUILD_ROOT%{_libdir}
+install -d $RPM_BUILD_ROOT{%{_libdir},%{_includedir}}
+install api/%{name}-%{version}.%{_srcrel}.so $RPM_BUILD_ROOT%{_libdir}
+install api/inc/*.h $RPM_BUILD_ROOT%{_includedir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -42,4 +54,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/%{name}-%{version}.so
+%attr(755,root,root) %{_libdir}/*.so
+
+%files devel
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_includedir}/*.h
