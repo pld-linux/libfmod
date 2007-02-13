@@ -3,7 +3,7 @@
 %define		_srcrel 1
 
 Summary:	FMOD sound library
-Summary(pl.UTF-8):   Biblioteka dźwiękowa FMOD
+Summary(pl.UTF-8):	Biblioteka dźwiękowa FMOD
 Name:		libfmod
 Version:	3.74
 Release:	1
@@ -31,7 +31,7 @@ EAX 2&3, C/C++/VB/Delphi/MASM i więcej.
 
 %package devel
 Summary:	Development headers for FMOD sound library
-Summary(pl.UTF-8):   Pliki nagłówkowe biblioteki dźwiękowej FMOD
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki dźwiękowej FMOD
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
