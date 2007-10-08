@@ -1,16 +1,20 @@
 
-%define		_srcver	374
-%define		_srcrel 1
+%define		_srcver	406
+%define		_srcrel 16
 
 Summary:	FMOD sound library
 Summary(pl.UTF-8):	Biblioteka dźwiękowa FMOD
 Name:		libfmod
-Version:	3.74
+Version:	4.06.%{_srcrel}
 Release:	1
 License:	Freeware
 Group:		Libraries
 Source0:	http://www.fmod.org/files/fmodapi%{_srcver}%{_srcrel}linux.tar.gz
-# Source0-md5:	8a76312aa56cd2223eb40e36a9060171
+# Source0-md5:	700915f4f86a92cf0658ddc4a02c29f0
+
+
+Source1:	http://www.fmod.org/files/fmodapi%{_srcver}%{_srcrel}linux64.tar.gz
+# Source1-md5:	ec77e027ff1677af0658b32a2fbcc0ec
 URL:		http://www.fmod.org/
 ExclusiveArch:	%{ix86}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -47,7 +51,7 @@ Pliki nagłówkowe biblioteki dźwiękowej FMOD.
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_libdir},%{_includedir}}
-install api/%{name}-%{version}.%{_srcrel}.so $RPM_BUILD_ROOT%{_libdir}
+install api/lib/%{name}ex{,p}.so.%{version} $RPM_BUILD_ROOT%{_libdir}/
 install api/inc/*.h $RPM_BUILD_ROOT%{_includedir}
 
 %clean
@@ -58,7 +62,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/*.so
+%attr(755,root,root) %{_libdir}/*.so.*.*.*
 
 %files devel
 %defattr(644,root,root,755)
